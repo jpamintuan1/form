@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Firebase Web Quickstart</title>
+
+<link rel="stylesheet" href="style.css">
+   
+    <link href="justified-nav.css" rel="stylesheet">
+
+</head>
+<body>
+
+<h1 id= "bigOne"></h1>
+<h1>Fuck You Bitch</h1>
+
+ <div class="container">
+ <h1 class ="brand"><span>Acme</span>Web Design</h1>
+ <div class="wrapper">
+  <div class="company-info"> 
+    <h3>Acme Web Design</h3>
+    <ul>
+      <li><i class="fa fa-road"></i> 44 Someething st</li>
+      <li><i class="fa fa-phone"></i> 555 555-5555</li>
+    <li><i class="fa fa-envelope"></i> test@acme.test</li>
+
+
+<p>
+<label>Name</label>
+<input type ="text" name="name" id="uname" >
+</p>
+
+<label>Company</label>
+<input type ="text" name="company" id="ucompany">
+<p>
+</p>
+<label>Email</label>
+ <input type="text" name="email" id="uemail">
+ <p>
+ </p>
+
+<label>Phone Number</label>
+ <input type="text" name="phone" id="uphone">
+ <p>
+ </p>
+<button onclick="pushFirebase()">Login</button>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAb90yTx_rZPpKhd-jF0tQNqncsomHnqp8",
+    authDomain: "rentfinds-22659.firebaseapp.com",
+    databaseURL: "https://rentfinds-22659.firebaseio.com",
+    projectId: "rentfinds-22659",
+    storageBucket: "rentfinds-22659.appspot.com",
+    messagingSenderId: "29885036537"
+  };
+  firebase.initializeApp(config);
+
+function pushFirebase ()  {
+
+  const fb = firebase.database().ref()
+
+  //get field values
+
+  user_name = document.getElementById('uname').value
+  user_company = document.getElementById('ucompany').value
+  user_email = document.getElementById('uemail').value
+  user_phone = document.getElementById('uphone').value
+
+  data = {user_name,user_company,user_email,user_phone}
+
+  //push database
+  fb.child('users/').push(data)
+}
+
+
+
+
+
+</script>
+<script src ="main.js"></script>
+</body>
+</html>
